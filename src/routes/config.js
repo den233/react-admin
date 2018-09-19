@@ -1,11 +1,11 @@
 export default {
     menus: [    // 菜单相关路由
-        { key: '/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
+        { key: '/home/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
         {
-            key: '/app/ui', title: 'UI', icon: 'scan',
+            key: '/home/ui', title: 'UI', icon: 'scan',
             subs: [
-                { key: '/app/ui/buttons', title: '按钮', component: 'Buttons'},
-                { key: '/app/ui/icons', title: '图标', component: 'Icons'},
+                { key: '/home/ui/buttons', title: '按钮', component: 'Buttons'},
+                { key: '/home/ui/icons', title: '图标', component: 'Icons'},
                 { key: '/app/ui/spins', title: '加载中', component: 'Spins'},
                 { key: '/app/ui/modals', title: '对话框', component: 'Modals'},
                 { key: '/app/ui/notifications', title: '通知提醒框', component: 'Notifications'},
@@ -62,6 +62,9 @@ export default {
         {
             key: '/app/cssModule', title: 'cssModule', icon: 'star', component: 'Cssmodule'
         },
+        {
+            key: '/introduction', title: 'introduction', icon: 'star', component: 'introduction'
+        }
     ],
     others: []  // 非菜单相关路由
 }

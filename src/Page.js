@@ -3,12 +3,14 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NotFound from './components/pages/NotFound';
 import Login from './components/pages/Login';
 import App from './App';
+import Home from './Home'
 
 export default () => (
     <Router>
         <Switch>
-            <Route exact path="/" render={() => <Redirect to="/app/dashboard/index" push />} />        
-            <Route path="/app" component={App} />
+            <Route exact path="/" render={() => <Redirect to="/home/app/dashboard/index" push />} />
+            <Route path="/home/app" component={App} />        
+            <Route path="/home" component={Home} />
             <Route path="/404" component={NotFound} />
             <Route path="/login" component={Login} />
             <Route component={NotFound} />
