@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 import Routes from './routes';
 const { Content, Footer } = Layout;
 
-class Home extends Component {
+class Full extends Component {
     state = {
         collapsed: false,
     };
@@ -63,9 +63,31 @@ class Home extends Component {
         // console.log(this.props.auth);
         // console.log(this.props.responsive);
         const { auth, responsive } = this.props;
-       
         return (
-            <div></div>
+            <div>
+                {/* {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />} */}
+                
+                    <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
+                    <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>
+                        <Routes auth={auth} />
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }}>
+                    React-Admin ©{new Date().getFullYear()} Created by 865470087@qq.com
+                    </Footer>
+                
+                
+                {/* {
+                    responsive.data.isMobile && (   // 手机端对滚动很慢的处理
+                        <style>
+                        {`
+                            #root{
+                                height: auto;
+                            }
+                        `}
+                        </style>
+                    )
+                } */}
+            </div>
         );
     }
 }
@@ -78,4 +100,4 @@ const mapDispatchToProps = dispatch => ({
     receiveData: bindActionCreators(receiveData, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Full);

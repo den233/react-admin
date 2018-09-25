@@ -15,7 +15,7 @@ const data = [
     {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
  
-class introuction extends React.Component {
+class Zc extends React.Component {
     
      
     render() { 
@@ -123,4 +123,4 @@ class introuction extends React.Component {
     }
 }
 
-export default introuction;
+export default Zc;

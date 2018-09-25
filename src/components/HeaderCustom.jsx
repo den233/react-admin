@@ -116,6 +116,7 @@ class HeaderCustom extends Component {
                             <Menu.Item key="setting:4">系统设置</Menu.Item>
                         </MenuItemGroup>
                     </SubMenu>
+                    <div class="clear"></div>
                 </Menu>
                 <style>{`
                     .ant-menu-submenu-horizontal > .ant-menu {

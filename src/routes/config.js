@@ -1,6 +1,11 @@
 export default {
     menus: [    // 菜单相关路由
         { key: '/home/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
+        { key: '/home/app/admin', title: '业务管理', icon: 'scan',
+           subs:[
+            { key: '/home/app/admin/zc', title: '注册', component: 'Zc'},
+           ]
+        },
         {
             key: '/home/app/ui', title: 'UI', icon: 'scan',
             subs: [
@@ -63,7 +68,7 @@ export default {
             key: '/home/app/cssModule', title: 'cssModule', icon: 'star', component: 'Cssmodule'
         },
         {
-            key: '/home/app/introduction', title: 'introduction', icon: 'star', component: 'introduction'
+            key: '/full/introduction', title: 'introduction', icon: 'star', component: 'introduction'
         }
     ],
     others: []  // 非菜单相关路由
