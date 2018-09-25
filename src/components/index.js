@@ -28,6 +28,7 @@ import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 
 import introduction from './introduction/introduction'
+import Zc from './zc/zc'
 const WysiwygBundle = Loadable({    // 按需加载富文本配置
     loader: () => import('./ui/Wysiwyg'),
     loading: Loading,
@@ -38,5 +39,5 @@ export default {
     Echarts, Recharts, Icons, Buttons, Spins, Modals, Notifications,
     Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,
     ExampleAnimations, AuthBasic, RouterEnter, WysiwygBundle,
-    Cssmodule, MapUi,introduction
+    Cssmodule, MapUi,introduction,Zc
 }
