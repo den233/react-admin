@@ -2,125 +2,56 @@
  * Created by caojia 2018-9-19.
  */
 import React from 'react';
-import { Row, Col, Card, Table, Popconfirm, Button } from 'antd';
-import {BarChart, Bar,LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
-const { Meta } = Card;
-const data = [
-    {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
-    {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
-    {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
-    {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
-    {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
-    {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
-    {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
-];
- 
+import { Card, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
+const FormItem = Form.Item;
 class Zc extends React.Component {
-    
-     
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    };
     render() { 
+        const { getFieldDecorator } = this.props.form;
         return (
-            <div className="container">
-               
-                <Col className="gutter-row" md={12}>
-                    <div className="gutter-box">
-                        <ResponsiveContainer width="100%" height={300}>
-                            <LineChart
-                                data={data}
-                                margin={{top: 5, right: 30, left: 20, bottom: 5}}
-                            >
-
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{r: 8}} />
-                                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-                            </LineChart>
-                        </ResponsiveContainer>
-                    </div>
-                </Col> 
-                <Col className="gutter-row" md={12}>
-                    <div className="gutter-box">
-                        <ResponsiveContainer width="100%" height={300}>
-                        <BarChart
-                            data={data}
-                            margin={{top: 5, right: 30, left: 20, bottom: 5}}
-                        >
-                            <XAxis dataKey="name" />
-                            <YAxis />
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <Tooltip />
-                            <Legend />
-                            <Bar dataKey="pv" fill="#8884d8" />
-                            <Bar dataKey="uv" fill="#82ca9d" />
-                        </BarChart>
-                       </ResponsiveContainer>
-                    </div>
-                </Col>    
-                 
-
-            <Col className="gutter-row" md={6}>
-            <div className="gutter-box">
-                <Card
-                    hoverable
-                    
-                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                    <Meta
-                    title="Europe Street beat"
-                    description="www.instagram.com"
-                    />
+            <div style={{ background: '#ECECEC', padding: '30px' }}>
+                <Card title="Card title" bordered={false} style={{ width: 300 }}>
+                    <Form onSubmit={this.handleSubmit} style={{maxWidth: '300px'}}>
+                        <FormItem>
+                            {getFieldDecorator('userName', {
+                                rules: [{ required: true, message: '请输入用户名!' }],
+                            })(
+                                <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="用户名" />
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('password', {
+                                rules: [{ required: true, message: '请输入密码!' }],
+                            })(
+                                <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="密码" />
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('remember', {
+                                valuePropName: 'checked',
+                                initialValue: true,
+                            })(
+                                <Checkbox>记住我</Checkbox>
+                            )}
+                            <a className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</a>
+                            <Button type="primary" htmlType="submit" className="login-form-button" style={{width: '100%'}}>
+                                登录
+                            </Button>
+                            或 <a href="">现在就去注册!</a>
+                        </FormItem>
+                    </Form>
                 </Card>
             </div>
-           </Col> 
-            <Col className="gutter-row" md={6}>
-            <div className="gutter-box">
-                <Card
-                    hoverable
-                     
-                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                    <Meta
-                    title="Europe Street beat"
-                    description="www.instagram.com"
-                    />
-                </Card>
-            </div>
-           </Col> 
-           <Col className="gutter-row" md={6}>
-            <div className="gutter-box">
-                <Card
-                    hoverable
-                     
-                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                    <Meta
-                    title="Europe Street beat"
-                    description="www.instagram.com"
-                    />
-                </Card>
-            </div>
-           </Col> 
-           <Col className="gutter-row" md={6}>
-            <div className="gutter-box">
-                <Card
-                    hoverable
-                     
-                    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                >
-                    <Meta
-                    title="Europe Street beat"
-                    description="www.instagram.com"
-                    />
-                </Card>
-            </div>
-           </Col> 
-           <div class="clear"></div>
-          </div>   
+            
         )
     }
 }
 
-export default Zc;
+export default Form.create()(Zc);
